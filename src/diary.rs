@@ -1,19 +1,16 @@
 use chrono::prelude::*;
-
-// Define a distinct type
-#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct EntryId(pub u64);
+use crate::utils::Id;
 
 #[derive(Eq, PartialEq)]
 pub struct DiaryEntry {
-    id: EntryId,
+    id: Id,
     time: DateTime<Utc>,
     author: String,
     contents: String,
 }
 
 impl DiaryEntry {
-    pub fn new(id: EntryId, time: DateTime<Utc>, author: String, contents: String) -> Self {
+    pub fn new(id: Id, time: DateTime<Utc>, author: String, contents: String) -> Self {
         return DiaryEntry {
             id: id,
             time: time,
@@ -30,7 +27,7 @@ impl DiaryEntry {
         return self.contents.as_str();
     }
 
-    pub fn get_id(self: &Self) -> EntryId {
+    pub fn get_id(self: &Self) -> Id {
         return self.id;
     }
 

@@ -1,3 +1,4 @@
+mod utils;
 mod diary;
 
 fn main() {
